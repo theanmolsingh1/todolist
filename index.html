@@ -7,7 +7,7 @@
                 height: 100%;
                 color: white;
                 width: 100%;
-                background-color: rgb(22, 42, 42);
+                background-color: rgb(56, 204, 204);
                 
             }
             .dd {
@@ -21,7 +21,7 @@
                 background-color: rgb(60, 36, 40);
                 width: 600px;
                 height: auto;
-                box-shadow: 20px 20px 20px rgb(44, 44, 146);
+                box-shadow: 20px 20px 20px rgb(60, 45, 28);
             }
             .as {
                 display: flex;
@@ -35,27 +35,33 @@
             .ss {
                 display: flex;
                 flex-direction: row;
-                background-color: rgb(0, 0, 0);
+                background-color: white;
                 gap: 10px;
                 width: auto;
                 height: 40px;
                 align-items: center;    
                 margin-top:40px ;
-                border-radius: 10px;
+                border-radius: 5px;
                 justify-content: space-between;
                 gap: 0px;
+                color: black;
+                
             }
             .fd {
                 background: rgb(111, 17, 17);   
+                height: 40px;
+                width: 40px;
                 color: white;
                 border: none;
                 cursor: pointer;
                 padding: 5px;
-                border-radius: 10px;
+                border-radius: 2px;
                 cursor: pointer;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                box-shadow: 5px 5px 10px;
+                /* color: rgb(106, 112, 110); */
                 }
             
         </style>
@@ -65,10 +71,10 @@
         <p style="margin-left: 0px; margin-top: 0px; font-size: 30px; text-shadow: red 2px 2px;">Made by <i>Anmol</i></p>
         <div class="dd">
             <br>
-            <h style="color:azure ; font-size: 20px; text-shadow: 2px 2px 2px;">To Do List</h>
+            <h style="color:azure ; font-size: 20px; text-shadow: 2px 2px 2px; font-size: 30px;">To Do List</h>
             <div class="as"> 
-            <input type="text" id="anmol" placeholder="Enter the task:"><br>
-            <button id="submit" style="height: 20px; width: 50px; border-radius: 20px; margin-right:100px;" onclick="addlst()">Add</button>
+            <input type="text" id="anmol" style="text-align: center; font-size: 30px; width: 300px; height: 40px; border-radius: 10px;" placeholder="Enter the task:"><br>
+            <button id="submit" style="text-align: center; height: 40px; width: 80px; border-radius: 10px; margin-right:220px;" onclick="addlst()">Add</button>
             </div>
             <p id="ans"></p>
         </div>
@@ -83,11 +89,23 @@
                 if(ele.trim()==="") return;
                 let div = document.createElement("div");
                 div.className = "ss";
-                div.style.fontSize = "20px";
+                div.style.fontSize = "30px";
                 div.innerHTML = ele.trim()+`<button class="fd" onclick="this.parentElement.remove()">X</button>`;
                 document.getElementById("ans").appendChild(div);   
                 document.getElementById("anmol").value= "";
+
+                div.addEventListener("click", function(){
+                    if(div.style.textDecoration === 'line-through'){
+                        div.style.textDecoration = "none";
+                        div.style.color = "black";
+                        
+                        return;
+                    }
+                    div.style.textDecoration = 'line-through';
+                    div.style.color = "rgb(106, 112, 110)";
+                });
             }
+
         </script>
     </body>
 </html>
